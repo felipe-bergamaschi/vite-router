@@ -1,5 +1,9 @@
 import path from 'path';
+import chokidar from 'chokidar';
 import { PluginOption } from 'vite';
+
+import { generateRoutes } from './src/generateRoutes'
+import { Log } from './src/utils/log'
 
 export interface ViteRouterPros {
   dir?: string;
@@ -8,24 +12,34 @@ export interface ViteRouterPros {
 
 const defaultDir = 'src/app';
 const defaultExtensions = ['tsx', 'ts', 'jsx', 'js'];
+const currentDirectory = process.cwd();
 
 export default function viteRouter({
-  dir: dirPath = defaultDir,
+  dir = defaultDir,
   extensions = defaultExtensions
 }: ViteRouterPros = {}): PluginOption {
-  const currentModuleDir = path.dirname(new URL(import.meta.url).pathname);
-
-  const dir = path.resolve(currentModuleDir, dirPath);
-
-  console.log({ dir, extensions });
+  const dirPath = path.resolve(currentDirectory, dir);
+  const chokidarWatcher = chokidar.watch(dirPath);
 
   return {
     name: 'vite-plugin-router',
 
-    configResolved(config) {
-      const plugins = config.plugins.map((plugin) => plugin.name);
-      console.log(`Seu projeto possui ${plugins.length} plugins do Vite.`);
-      console.table(plugins);
+    configureServer() {
+      chokidarWatcher.on('add', () => {
+        generateRoutes({ dir: dirPath, extensions });
+      });
+
+      chokidarWatcher.on('unlink', () => {
+        generateRoutes({ dir: dirPath, extensions });
+      });
+
+      chokidarWatcher.on('ready', () => {
+        Log.info('Vite router is ready');
+        Log.info(`Observing in: ${dirPath}`);
+      });
     },
+    closeBundle() {
+      chokidarWatcher.close();
+    }
   };
 }
