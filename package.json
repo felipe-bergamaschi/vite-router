@@ -22,5 +22,8 @@
   "homepage": "https://github.com/felipe-bergamaschi/vite-router#readme",
   "devDependencies": {
     "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "pino": "^8.14.1"
   }
 }
