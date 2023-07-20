@@ -9,7 +9,7 @@ export interface ViteRouterPros {
 const defaultDir = 'src/app';
 const defaultExtensions = ['tsx', 'ts', 'jsx', 'js'];
 
-export function viteRouter({
+export default function viteRouter({
   dir: dirPath = defaultDir,
   extensions = defaultExtensions
 }: ViteRouterPros = {}): PluginOption {
