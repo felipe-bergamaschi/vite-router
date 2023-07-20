@@ -21,9 +21,14 @@
   },
   "homepage": "https://github.com/felipe-bergamaschi/vite-router#readme",
   "devDependencies": {
-    "typescript": "^5.1.6"
+    "@types/lodash": "^4.14.195",
+    "@types/node": "^20.4.2",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.4"
   },
   "dependencies": {
+    "chokidar": "^3.5.3",
+    "lodash": "^4.17.21",
     "pino": "^8.14.1"
   }
 }
