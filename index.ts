@@ -1,6 +1,22 @@
+import path from 'path';
 import { PluginOption } from 'vite';
 
-export function viteRouter(): PluginOption {
+interface ViteRouterPros {
+  dir?: string;
+  extensions?: string[];
+};
+
+const defaultDir = 'src/app';
+const defaultExtensions = ['tsx', 'ts', 'jsx', 'js'];
+
+export function viteRouter({
+  dir: dirPath = defaultDir,
+  extensions = defaultExtensions
+}: ViteRouterPros = {}): PluginOption {
+  const dir = path.resolve(__dirname, dirPath);
+
+  console.log({ dir, extensions });
+
   return {
     name: 'vite-plugin-router',
 
