@@ -12,8 +12,8 @@ dependencies:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
   vite-plugin-router:
-    specifier: 0.0.0-beta.5
-    version: 0.0.0-beta.5
+    specifier: 0.0.0-beta.7
+    version: 0.0.0-beta.7
 
 devDependencies:
   '@types/react':
@@ -1701,8 +1701,8 @@ packages:
       punycode: 2.3.0
     dev: true
 
-  /vite-plugin-router@0.0.0-beta.5:
-    resolution: {integrity: sha512-QExCG4HFdVgGPgMeZRws9DEc03yVYJ+jLNI0dHEma5BHtaptCQNZW3A37kplAy2Zd2vwGC7XFfXQWfVPOYjyLQ==}
+  /vite-plugin-router@0.0.0-beta.7:
+    resolution: {integrity: sha512-iHnxQdESqpkyYrwqmPOmkWMD9SA/u7ne4wnMSAsEPdtttwOID+1m4CNpUgmi2UZHowAdscpU7IiFqy+GhTKvmw==}
     dev: false
 
   /vite@4.4.5:
