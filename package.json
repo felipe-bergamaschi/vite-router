@@ -4,6 +4,7 @@
   "author": "Felipe Bergamaschi",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "type": "module",
   "license": "MIT",
   "homepage": "https://github.com/felipe-bergamaschi/vite-router#readme",
   "description": "a react router dom constructor",
