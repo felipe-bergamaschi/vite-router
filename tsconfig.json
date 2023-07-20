@@ -36,6 +36,12 @@
     "noImplicitOverride": true,
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
-    "preserveWatchOutput": true
+    "preserveWatchOutput": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": [
+        "*"
+      ]
+    },
   }
 }
