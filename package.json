@@ -1,5 +1,5 @@
 {
-  "name": "@vitejs/plugin-router",
+  "name": "vite-plugin-router",
   "version": "0.0.0-beta.1",
   "author": "Felipe Bergamaschi",
   "main": "dist/index.js",
