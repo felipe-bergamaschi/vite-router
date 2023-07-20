@@ -2,7 +2,7 @@
   "name": "@vitejs/router",
   "version": "1.0.0",
   "description": "a react router dom constructor",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/felipe-bergamaschi/vite-router/issues"
   },
-  "homepage": "https://github.com/felipe-bergamaschi/vite-router#readme"
+  "homepage": "https://github.com/felipe-bergamaschi/vite-router#readme",
+  "devDependencies": {
+    "typescript": "^5.1.6"
+  }
 }
