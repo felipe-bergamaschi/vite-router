@@ -29,5 +29,10 @@
   ],
   "bugs": {
     "url": "https://github.com/felipe-bergamaschi/vite-router/issues"
+  },
+  "dependencies": {
+    "chokidar": "^3.5.3",
+    "pino": "^8.14.1",
+    "pino-pretty": "^10.0.1"
   }
 }
