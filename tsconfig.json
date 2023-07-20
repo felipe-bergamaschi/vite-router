@@ -9,10 +9,9 @@
     "declaration": true,
     "baseUrl": ".",
   },
-  "include": [
-    "index.ts"
-  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "dist",
+    "exemple"
   ]
 }

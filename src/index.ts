@@ -2,8 +2,8 @@ import path from 'path';
 import chokidar from 'chokidar';
 import { PluginOption } from 'vite';
 
-import { generateRoutes } from './src/generateRoutes'
-import { Log } from './src/utils/log'
+import { generateRoutes } from './generateRoutes'
+import { Log } from './utils/log'
 
 export interface ViteRouterPros {
   dir?: string;
