@@ -1,29 +1,16 @@
 import path from 'path';
 import chokidar from 'chokidar';
 
+import { CURRENT_DIR, DEFAULT_DIR, DEFAULT_OUT_DIR } from './constants'
 import { generateRoutes } from './generateRoutes'
 import { Log } from './utils/log'
-
-interface PluginOption {
-  name: string;
-  configureServer(): void;
-  closeBundle(): void;
-}
-
-export interface ViteRouterPros {
-  dir?: string;
-  extensions?: string[];
-}
-
-const defaultDir = 'src/app';
-const defaultExtensions = ['tsx', 'ts', 'jsx', 'js'];
-const currentDirectory = process.cwd();
+import type { IViteRouterPlugin, IViteRouterPros } from './types';
 
 export default function viteRouter({
-  dir = defaultDir,
-  extensions = defaultExtensions
-}: ViteRouterPros = {}): PluginOption {
-  const dirPath = path.resolve(currentDirectory, dir);
+  dir = DEFAULT_DIR,
+  outDir = DEFAULT_OUT_DIR
+}: IViteRouterPros = {}): IViteRouterPlugin {
+  const dirPath = path.resolve(CURRENT_DIR, dir);
   const chokidarWatcher = chokidar.watch(dirPath);
 
   return {
@@ -31,11 +18,11 @@ export default function viteRouter({
 
     configureServer() {
       chokidarWatcher.on('add', () => {
-        generateRoutes({ dir: dirPath, extensions });
+        generateRoutes({ dir: dirPath, outDir });
       });
 
       chokidarWatcher.on('unlink', () => {
-        generateRoutes({ dir: dirPath, extensions });
+        generateRoutes({ dir: dirPath, outDir });
       });
 
       chokidarWatcher.on('ready', () => {
