@@ -12,8 +12,8 @@ dependencies:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
   vite-plugin-router:
-    specifier: 0.0.0-beta.10
-    version: 0.0.0-beta.10
+    specifier: 0.0.0-beta.11
+    version: 0.0.0-beta.11
 
 devDependencies:
   '@types/react':
@@ -1974,8 +1974,8 @@ packages:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
     dev: false
 
-  /vite-plugin-router@0.0.0-beta.10:
-    resolution: {integrity: sha512-G+/2DXZfW0gf73x9+NiJiYvCysssSalvlOTYXeUV30MzWiJ3Oymwm7O4GlwAdZhwqTHGMghMo+3od2POlOnm0A==}
+  /vite-plugin-router@0.0.0-beta.11:
+    resolution: {integrity: sha512-ZdOpejWX9HrqPikcGLj37gXRGZ8LLrx1QnXICayUxWA3ve6UlKBSrvUq8vE3eXBzs2IJSX7Lx+SY+sML+wdHeA==}
     dependencies:
       chokidar: 3.5.3
       pino: 8.14.1
