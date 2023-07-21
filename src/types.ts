@@ -9,3 +9,8 @@ export interface IViteRouterPlugin {
   closeBundle(): void;
 }
 
+export interface File {
+  path: string;
+  name: string;
+}
+
