@@ -47,8 +47,8 @@ devDependencies:
     specifier: ^0.31.0
     version: 0.31.0(vite@4.4.5)
   vite-plugin-router:
-    specifier: 0.0.0-beta.14
-    version: 0.0.0-beta.14
+    specifier: 0.0.0-beta.15
+    version: 0.0.0-beta.15
 
 packages:
 
@@ -1779,6 +1779,10 @@ packages:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
     dev: true
 
+  /lodash@4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: true
+
   /loose-envify@1.4.0:
     resolution: {integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==}
     hasBin: true
@@ -2350,10 +2354,11 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-router@0.0.0-beta.14:
-    resolution: {integrity: sha512-PnmeW4sKkp6XOXLO6uGEyyCYbTMlqddD0gp/nRjUCkUO91nCzb2W/2AAQy6gM4ZBJiO6vTJj9Fb7PTkf7dJ5ww==}
+  /vite-plugin-router@0.0.0-beta.15:
+    resolution: {integrity: sha512-dKIWN13V/TeOXPxILDyX/MCbltFTCAXggAyqMPr5rN+pycStJnVYP96c1A+n1qiO6+eMUkdDkqZx8k9AZExpIQ==}
     dependencies:
       chokidar: 3.5.3
+      lodash: 4.17.21
       pino: 8.14.1
       pino-pretty: 10.1.0
     dev: true
