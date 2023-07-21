@@ -47,8 +47,8 @@ devDependencies:
     specifier: ^0.31.0
     version: 0.31.0(vite@4.4.5)
   vite-plugin-router:
-    specifier: 0.0.0-beta.13
-    version: 0.0.0-beta.13
+    specifier: 0.0.0-beta.14
+    version: 0.0.0-beta.14
 
 packages:
 
@@ -2350,8 +2350,8 @@ packages:
       - supports-color
     dev: true
 
-  /vite-plugin-router@0.0.0-beta.13:
-    resolution: {integrity: sha512-izwuM4YYsU9E1dV3qR4FtNfJLDtMoRVnapjcyRb8MCjilL0QKSd+lqfiJet/D0J+hcang/AVjmA7qhh7qGhUPA==}
+  /vite-plugin-router@0.0.0-beta.14:
+    resolution: {integrity: sha512-PnmeW4sKkp6XOXLO6uGEyyCYbTMlqddD0gp/nRjUCkUO91nCzb2W/2AAQy6gM4ZBJiO6vTJj9Fb7PTkf7dJ5ww==}
     dependencies:
       chokidar: 3.5.3
       pino: 8.14.1
