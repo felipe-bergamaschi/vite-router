@@ -1,13 +1,24 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "node",
+    "target": "es2017",
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
     "outDir": "dist",
-    "declaration": true,
+    "esModuleInterop": true,
     "strict": true,
-    "allowSyntheticDefaultImports": true,
+    "strictNullChecks": true,
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "noUnusedParameters": true
   },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts"
+  ],
   "exclude": [
     "node_modules",
     "dist",
