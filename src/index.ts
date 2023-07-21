@@ -1,5 +1,6 @@
 import path from 'path';
 import chokidar from 'chokidar';
+import lodash from 'lodash';
 
 import { CURRENT_DIR, DEFAULT_DIR, DEFAULT_OUT_DIR } from './constants'
 import { generateRoutes } from './generateRoutes'
@@ -13,16 +14,18 @@ export default function viteRouter({
   const dirPath = path.resolve(CURRENT_DIR, dir);
   const chokidarWatcher = chokidar.watch(dirPath);
 
+  const debounceGenerateRoutes = lodash.debounce(generateRoutes, 100);
+
   return {
     name: 'vite-plugin-router',
 
     configureServer() {
       chokidarWatcher.on('add', () => {
-        generateRoutes({ dir: dirPath, outDir });
+        debounceGenerateRoutes({ dir: dirPath, outDir });
       });
 
       chokidarWatcher.on('unlink', () => {
-        generateRoutes({ dir: dirPath, outDir });
+        debounceGenerateRoutes({ dir: dirPath, outDir });
       });
 
       chokidarWatcher.on('ready', () => {
