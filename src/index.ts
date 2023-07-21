@@ -1,6 +1,6 @@
 import path from 'path';
 import chokidar from 'chokidar';
-import { PluginOption } from 'vite';
+import type { PluginOption } from 'vite';
 
 import { generateRoutes } from './generateRoutes'
 import { Log } from './utils/log'

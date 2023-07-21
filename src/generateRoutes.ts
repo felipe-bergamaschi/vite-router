@@ -1,4 +1,4 @@
-import { ViteRouterPros } from ".";
+import type { ViteRouterPros } from ".";
 import { Log } from "./utils/log";
 
 export function generateRoutes({ dir, extensions }: ViteRouterPros) {
