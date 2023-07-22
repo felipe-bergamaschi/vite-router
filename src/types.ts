@@ -14,3 +14,13 @@ export interface File {
   name: string;
 }
 
+export interface ProcessedRoute {
+  path: string;
+  name: string;
+  route: string;
+}
+
+export interface IProcessFiles {
+  files: ProcessedRoute[];
+  layouts: File[];
+}
