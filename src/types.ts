@@ -24,3 +24,10 @@ export interface IProcessFiles {
   files: ProcessedRoute[];
   layouts: File[];
 }
+
+export interface IRoute {
+  name: string;
+  path: string;
+  route: string;
+  layout: string | null;
+}

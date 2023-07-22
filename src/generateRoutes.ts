@@ -1,4 +1,5 @@
 import type { IViteRouterPros } from "./types";
+import { findLayout } from "./utils/findLayout";
 import { getFilesWithExtensions } from "./utils/getFilesWithExtensions";
 import { Log } from "./utils/log";
 import { processFiles } from "./utils/processFiles";
@@ -8,7 +9,9 @@ export function generateRoutes({ dir = '', outDir = '' }: IViteRouterPros) {
 
   const { files, layouts } = processFiles(getFiles);
 
-  console.log({ files, layouts })
+  const routes = findLayout(files, layouts);
+
+  console.log({ routes })
 
   // Log.info(getFiles)
   // Log.info(`outDir: ${outDir}`)
