@@ -1,7 +1,6 @@
 import path from "path";
 import fs from "fs";
-import { minify } from "terser";
-import babel from "@babel/core";
+import prettier from 'prettier';
 
 import type { IViteRouterPros } from "./types";
 import { findLayout } from "./utils/findLayout";
@@ -20,28 +19,20 @@ export function generateRoutes({ dir = '', outDir = '' }: IViteRouterPros) {
 
   const generateTemplate = template(routes, layouts);
 
-  babel.transform(generateTemplate, {
-    filename: 'router.tsx',
-    presets: ['@babel/preset-react', '@babel/preset-typescript']
-  }, (err, result) => {
-    if (err) {
-      Log.error('Generate template error:', err);
+  const fileName = 'router.tsx';
+  const filePath = path.join(CURRENT_DIR, outDir, fileName);
 
-      return;
-    }
+  prettier.format(generateTemplate, {
+    parser: 'typescript',
+    semi: true,
+    singleQuote: true,
+    trailingComma: 'all',
+    jsxBracketSameLine: false,
+  }).then((result) => {
 
-    minify(result?.code || '')
-      .then((minifiedResult) => {
-        const fileName = 'router.jsx';
-        const filePath = path.join(CURRENT_DIR, outDir, fileName);
-        const result = minifiedResult.code || '';
-
-        fs.writeFileSync(filePath, result, 'utf-8');
-        Log.info(`Generated successfully`);
-      })
-      .catch((error) => {
-        Log.error('Generate template error:', error);
-      });
+    fs.writeFileSync(filePath, result, 'utf-8');
+    Log.info(`Generated successfully`);
+  }).catch((error) => {
+    Log.error(`Generate template error: ${error}`);
   });
-
 }
