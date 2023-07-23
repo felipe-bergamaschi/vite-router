@@ -18,7 +18,7 @@ export function generateRoutes({ dir = '', outDir = '' }: IViteRouterPros) {
 
   const generateTemplate = template(routes, layouts);
 
-  const fileName = 'router.tsx';
+  const fileName = 'routes.tsx';
   const filePath = path.join(CURRENT_DIR, outDir, fileName);
 
   fs.writeFileSync(filePath, generateTemplate, 'utf-8');
