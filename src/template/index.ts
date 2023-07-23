@@ -2,7 +2,10 @@ import { IRoute, File } from '../types'
 import { generateImports, generateLayoutImports, generateRoutes } from './utils'
 
 export function template(routes: IRoute[], layouts: File[]) {
-  return `import { lazy, Suspense } from 'react';
+  return `// Created by Vite Router https://www.npmjs.com/package/vite-plugin-router
+  // @ts-nocheck
+  // prettier-ignore
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 ${generateImports(routes)}

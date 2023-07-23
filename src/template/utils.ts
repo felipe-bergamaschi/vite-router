@@ -70,9 +70,9 @@ export function generateLayoutImports(layouts: File[]) {
     .join('\n');
 }
 
-export function generateRoutes(routes: any[]) {
+export function generateRoutes(routes: IRoute[]) {
   return routes
-    .map(({ processedPath, layout }, index) => {
+    .map(({ route, layout }, index) => {
       const fileName = `File${index + 1}`;
       const layoutName = getCustomLayoutName(layout);
 
@@ -88,8 +88,8 @@ export function generateRoutes(routes: any[]) {
       return `
           <Route 
             element={${processedLayout}} 
-            path="${processedPath === '' ? '/' : processedPath}" 
-            key="${processedPath === '' ? '/' : processedPath}"  
+            path="${route === '' ? '/' : route}" 
+            key="${route === '' ? '/' : route}"  
           />`;
     })
     .join('\n        ');
