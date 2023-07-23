@@ -1,6 +1,5 @@
 import path from "path";
 import fs from "fs";
-import prettier from 'prettier';
 
 import type { IViteRouterPros } from "./types";
 import { findLayout } from "./utils/findLayout";
@@ -22,17 +21,6 @@ export function generateRoutes({ dir = '', outDir = '' }: IViteRouterPros) {
   const fileName = 'router.tsx';
   const filePath = path.join(CURRENT_DIR, outDir, fileName);
 
-  prettier.format(generateTemplate, {
-    parser: 'typescript',
-    semi: true,
-    singleQuote: true,
-    trailingComma: 'all',
-    jsxBracketSameLine: false,
-  }).then((result) => {
-
-    fs.writeFileSync(filePath, result, 'utf-8');
-    Log.info(`Generated successfully`);
-  }).catch((error) => {
-    Log.error(`Generate template error: ${error}`);
-  });
+  fs.writeFileSync(filePath, generateTemplate, 'utf-8');
+  Log.info(`Generated successfully`);
 }

@@ -25,9 +25,6 @@ devDependencies:
   '@types/node':
     specifier: ^20.4.2
     version: 20.4.2
-  prettier:
-    specifier: ^3.0.0
-    version: 3.0.0
   tsup:
     specifier: ^7.1.0
     version: 7.1.0(typescript@5.1.6)
@@ -843,12 +840,6 @@ packages:
     dependencies:
       lilconfig: 2.1.0
       yaml: 2.3.1
-    dev: true
-
-  /prettier@3.0.0:
-    resolution: {integrity: sha512-zBf5eHpwHOGPC47h0zrPyNn+eAEIdEzfywMoYn2XPi0P44Zp0tSq64rq0xAREh4auw2cJZHo9QUob+NqCQky4g==}
-    engines: {node: '>=14'}
-    hasBin: true
     dev: true
 
   /process-warning@2.2.0:
