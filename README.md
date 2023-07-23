@@ -183,7 +183,7 @@ Our application is in a constant state of evolution, and our team is dedicated t
 
 Catch-all routes are denoted with square brackets containing an ellipsis:
 
-- `src/app/[...all].vue` -> `/*` (`/non-existent-page`)
+- `src/app/[...all].tsx` -> `/*` (`/non-existent-page`)
 
 The text after the ellipsis will be used both to name the route, and as the name
 of the prop in which the route parameters are passed.
