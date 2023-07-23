@@ -14,9 +14,9 @@
     "start": "node dist/index.js"
   },
   "devDependencies": {
-    "@types/babel__core": "^7.20.1",
     "@types/lodash": "^4.14.195",
     "@types/node": "^20.4.2",
+    "prettier": "^3.0.0",
     "tsup": "^7.1.0",
     "typescript": "^5.1.6"
   },
@@ -33,14 +33,10 @@
     "url": "https://github.com/felipe-bergamaschi/vite-router/issues"
   },
   "dependencies": {
-    "@babel/core": "^7.22.9",
-    "@babel/preset-react": "^7.22.5",
-    "@babel/preset-typescript": "^7.22.5",
     "chokidar": "^3.5.3",
     "lodash": "^4.17.21",
     "pino": "^8.14.1",
-    "pino-pretty": "^10.0.1",
-    "terser": "^5.19.2"
+    "pino-pretty": "^10.0.1"
   },
   "exports": {
     ".": {
