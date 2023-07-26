@@ -1,7 +1,7 @@
 // Created by Vite Router https://www.npmjs.com/package/vite-plugin-router
-  // @ts-nocheck
-  // prettier-ignore
-import React, { lazy, Suspense } from 'react';
+// @ts-nocheck
+// prettier-ignore
+import React,{ lazy,Suspense } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const File1 = lazy(() => import('./app/admin'));
@@ -25,57 +25,56 @@ interface IAppRoutesProps {
   customLoading?: React.ReactNode;
 }
 
-export function AppRoutes({ custom404: Custom404, customLoading: CustomLoading }: IAppRoutesProps) {
+export function AppRoutes({
+  custom404: Custom404,
+  customLoading: CustomLoading
+}: IAppRoutesProps) {
   return (
     <BrowserRouter>
       <Suspense fallback={CustomLoading || <Loading />}>
         <Routes>
-          
-          <Route 
+          <Route
             element={
               <AdminLayout>
                 <File1 />
               </AdminLayout>
-            } 
-            path="/admin" 
-            key="/admin"  
+            }
+            path="/admin"
+            key="/admin"
           />
-        
-          <Route 
+
+          <Route
             element={
               <AdminLayout>
                 <File2 />
               </AdminLayout>
-            } 
-            path="/admin/product/details/:id" 
-            key="/admin/product/details/:id"  
+            }
+            path="/admin/product/details/:id"
+            key="/admin/product/details/:id"
           />
-        
-          <Route 
+
+          <Route
             element={
               <AdminLayout>
                 <File3 />
               </AdminLayout>
-            } 
-            path="/admin/product/:id" 
-            key="/admin/product/:id"  
+            }
+            path="/admin/product/:id"
+            key="/admin/product/:id"
           />
-        
-          <Route 
+
+          <Route
             element={
               <RootLayout>
                 <File4 />
               </RootLayout>
-            } 
-            path="/" 
-            key="/"  
+            }
+            path="/"
+            key="/"
           />
-          <Route
-            path="*"
-            element={Custom404 || <Error404 />}
-          />
+          <Route path="*" element={Custom404 || <Error404 />} />
         </Routes>
-      </Suspense> 
+      </Suspense>
     </BrowserRouter>
   );
 }

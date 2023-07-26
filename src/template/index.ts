@@ -1,5 +1,5 @@
-import { IRoute, File } from '../types'
-import { generateImports, generateLayoutImports, generateRoutes } from './utils'
+import { File, IRoute } from '../types';
+import { generateImports, generateLayoutImports, generateRoutes } from './utils';
 
 export function template(routes: IRoute[], layouts: File[]) {
   return `// Created by Vite Router https://www.npmjs.com/package/vite-plugin-router

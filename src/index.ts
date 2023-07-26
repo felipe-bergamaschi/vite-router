@@ -1,11 +1,11 @@
-import path from 'path';
 import chokidar from 'chokidar';
 import lodash from 'lodash';
+import path from 'path';
 
-import { CURRENT_DIR, DEFAULT_DIR, DEFAULT_OUT_DIR } from './constants'
-import { generateRoutes } from './generateRoutes'
-import { Log } from './utils/log'
+import { CURRENT_DIR, DEFAULT_DIR, DEFAULT_OUT_DIR } from './constants';
+import { generateRoutes } from './generateRoutes';
 import type { IViteRouterPlugin, IViteRouterPros } from './types';
+import { Log } from './utils/log';
 
 export default function viteRouter({
   dir = DEFAULT_DIR,

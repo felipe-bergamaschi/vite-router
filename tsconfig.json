@@ -2,10 +2,7 @@
   "compilerOptions": {
     "module": "ESNext",
     "target": "es2017",
-    "lib": [
-      "ESNext",
-      "DOM"
-    ],
+    "lib": ["ESNext", "DOM"],
     "outDir": "dist",
     "esModuleInterop": true,
     "strict": true,
@@ -15,13 +12,6 @@
     "skipLibCheck": true,
     "noUnusedParameters": true
   },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.d.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "exemple"
-  ]
+  "include": ["src/**/*.ts", "src/**/*.d.ts"],
+  "exclude": ["node_modules", "dist", "exemple"]
 }

@@ -1,6 +1,6 @@
-import { formatFileName, formatPath } from './';
-import { File, ProcessedRoute, IProcessFiles } from '../types';
 import { ROOT_DIR } from '../constants';
+import { File, IProcessFiles, ProcessedRoute } from '../types';
+import { formatFileName, formatPath } from './';
 
 export function processFiles(files: File[]): IProcessFiles {
   const processedFiles: ProcessedRoute[] = [];

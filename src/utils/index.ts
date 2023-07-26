@@ -1,4 +1,4 @@
-import { ROOT_DIR } from "../constants";
+import { ROOT_DIR } from '../constants';
 
 export function formatPath(path: string): string {
   return path.replace(/\[(.+?)\]/g, ':$1');
@@ -17,4 +17,3 @@ export function formatFileName(fileName: string): string {
 
   return `${ROOT_DIR}${fileName}`;
 }
-

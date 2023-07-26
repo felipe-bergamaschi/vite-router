@@ -1,35 +1,37 @@
 {
   "name": "vite-plugin-router",
   "version": "0.1.3",
-  "author": "Felipe Bergamaschi",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
-  "license": "MIT",
-  "homepage": "https://github.com/felipe-bergamaschi/vite-router#readme",
-  "description": "a react router dom constructor",
   "private": false,
-  "scripts": {
-    "build": "tsup",
-    "start": "node dist/index.js"
-  },
-  "devDependencies": {
-    "@types/lodash": "^4.14.195",
-    "@types/node": "^20.4.2",
-    "tsup": "^7.1.0",
-    "typescript": "^5.1.6"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/felipe-bergamaschi/vite-router.git"
-  },
+  "description": "a react router dom constructor",
   "keywords": [
     "vite",
     "plugin",
     "router"
   ],
+  "homepage": "https://github.com/felipe-bergamaschi/vite-router#readme",
   "bugs": {
     "url": "https://github.com/felipe-bergamaschi/vite-router/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipe-bergamaschi/vite-router.git"
+  },
+  "license": "MIT",
+  "author": "Felipe Bergamaschi",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "format": "prettier --write .",
+    "start": "node dist/index.js"
   },
   "dependencies": {
     "chokidar": "^3.5.3",
@@ -37,11 +39,12 @@
     "pino": "^8.14.1",
     "pino-pretty": "^10.0.1"
   },
-  "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
-    }
+  "devDependencies": {
+    "@arthurfiorette/prettier-config": "^1.0.9",
+    "@types/lodash": "^4.14.195",
+    "@types/node": "^20.4.2",
+    "prettier": "^3.0.0",
+    "tsup": "^7.1.0",
+    "typescript": "^5.1.6"
   }
 }

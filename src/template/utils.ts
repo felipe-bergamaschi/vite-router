@@ -1,4 +1,4 @@
-import { IRoute, File } from "../types";
+import { File, IRoute } from '../types';
 
 export function getCustomLayoutName(path: string | null) {
   if (!path) return null;

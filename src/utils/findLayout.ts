@@ -1,5 +1,5 @@
 import { ROOT_DIR } from '../constants';
-import { ProcessedRoute, File, IRoute } from '../types';
+import { File, IRoute, ProcessedRoute } from '../types';
 
 function findLayoutForFile(files: ProcessedRoute, layouts: File[]) {
   const pathSegments = files.path.split(ROOT_DIR).filter((segment) => segment !== '');
