@@ -1,13 +1,17 @@
 import { formatFileName, formatPath } from './';
 import { File, ProcessedRoute, IProcessFiles } from '../types';
-import { ROOT_DIR } from '../constants';
+import { NON_ROUTE_NAMES, ROOT_DIR } from '../constants';
 
 export function processFiles(files: File[]): IProcessFiles {
   const processedFiles: ProcessedRoute[] = [];
   const layoutFiles: File[] = [];
 
   files.forEach(({ name, path }) => {
-    if (name.includes('style') || name.includes('css')) return;
+    const isNonRouteFile = NON_ROUTE_NAMES.some(nonRouteName =>
+      name.includes(nonRouteName)
+    )
+
+    if (isNonRouteFile) return;
 
     if (name.includes('layout')) {
       layoutFiles.push({ name, path });
