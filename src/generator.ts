@@ -1,6 +1,5 @@
-import fs from 'fs/promises';
-import path from 'path';
-
+import fs from 'node:fs/promises';
+import path from 'node:path';
 import { buildComponent, buildFile, buildLazyImport } from './template';
 import type { Layout, Route, RouterProps } from './types';
 import { walk } from './walk';

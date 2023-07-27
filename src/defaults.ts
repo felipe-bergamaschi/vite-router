@@ -1,4 +1,4 @@
-import path from 'path';
+import path from 'node:path';
 import { RouterProps } from './types';
 
 export function configureDefaults(props: Partial<RouterProps> = {}) {
