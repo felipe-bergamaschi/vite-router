@@ -1,33 +1,63 @@
-export interface IViteRouterPros {
-  dir?: string;
-  outDir?: string;
+import type { ReactNode } from 'react';
+
+/** Properties that can be passed to the plugin */
+export interface RouterProps {
+  /**
+   * Path to the pages directory
+   *
+   * @default 'src/pages'
+   */
+  dir: string;
+
+  /**
+   * Output path for the `routes` file.
+   *
+   * @default 'src/routes.tsx'
+   */
+  output: string;
+
+  /**
+   * Match the file extensions to be used for the plugin
+   *
+   * @default ['.tsx', '.ts', '.jsx', '.js']
+   */
+  extensions: string[];
+
+  /**
+   * Matches all layout files
+   *
+   * @default ['layout.tsx', 'layout.jsx']
+   */
+  layouts: string[];
 }
 
-export interface IViteRouterPlugin {
-  name: string;
-  configureServer(): void;
-  closeBundle(): void;
+export interface RouteProps {
+  /**
+   * If we should use a different 404 component instead of a <div>404</div>
+   *
+   * @default undefined
+   */
+  notFoundPage?: ReactNode;
+
+  /**
+   * If we should use a different loading component instead of a <div>Loading...</div>
+   *
+   * @default undefined
+   */
+  loadingPage?: ReactNode;
 }
 
-export interface File {
+/** @internal */
+export interface Layout {
   path: string;
-  name: string;
+  index: number;
 }
 
-export interface ProcessedRoute {
+/** @internal */
+export interface Route {
   path: string;
-  name: string;
+  directory: string;
   route: string;
-}
-
-export interface IProcessFiles {
-  files: ProcessedRoute[];
-  layouts: File[];
-}
-
-export interface IRoute {
-  name: string;
-  path: string;
-  route: string;
-  layout: string | null;
+  index: number;
+  layout?: Layout;
 }
