@@ -5,7 +5,7 @@ import { configureDefaults } from './defaults';
 import { generateRoutes } from './generator';
 import type { RouterProps } from './types';
 
-export function Router(props: Partial<RouterProps> = {}): PluginOption {
+export function ViteRouter(props: Partial<RouterProps> = {}): PluginOption {
   const config = configureDefaults(props);
 
   const watcher = chokidar.watch(config.dir);
