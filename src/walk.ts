@@ -1,9 +1,7 @@
 import { readdir } from 'node:fs/promises';
 import path from 'node:path';
 
-/**
- * Walks through a directory and returns a generator of all the files
- */
+/** Walks through a directory and returns a generator of all the files */
 export async function* walk(dir: string): AsyncGenerator<string, void, void> {
   const contents = await readdir(dir, { withFileTypes: true });
 

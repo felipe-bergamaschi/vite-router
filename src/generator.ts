@@ -27,7 +27,9 @@ export async function generateRoutes(props: RouterProps) {
       (name.startsWith('[') && !name.endsWith(']')) ||
       (!name.startsWith('[') && name.endsWith(']'))
     ) {
-      console.error(`ERR: The file is not a valid route (${path.relative(process.cwd(), filepath)})`);
+      console.error(
+        `ERR: The file is not a valid route (${path.relative(process.cwd(), filepath)})`
+      );
       continue;
     }
 

@@ -19,7 +19,9 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "lint": "prettier --check .",
+    "test": "tsc --noEmit"
   },
   "dependencies": {
     "@types/react": "^18.2.17",
@@ -37,5 +39,9 @@
   },
   "peerDependencies": {
     "vite": "^4.4.7"
+  },
+  "packageManager": "pnpm@7.27.0",
+  "engines": {
+    "node": ">=12"
   }
 }
