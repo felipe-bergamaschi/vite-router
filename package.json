@@ -22,17 +22,20 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "@types/react": "^18.2.17",
     "chokidar": "^3.5.3",
-    "lodash": "^4.17.21",
-    "pino": "^8.14.1",
-    "pino-pretty": "^10.0.1",
+    "debounce": "^1.2.1",
     "tslib": "^2.6.1"
   },
   "devDependencies": {
     "@arthurfiorette/prettier-config": "^1.0.9",
-    "@types/lodash": "^4.14.195",
+    "@types/debounce": "^1.2.1",
     "@types/node": "^20.4.2",
     "prettier": "^3.0.0",
+    "rollup": "^3.26.3",
     "typescript": "^5.1.6"
+  },
+  "peerDependencies": {
+    "vite": "^4.4.7"
   }
 }
