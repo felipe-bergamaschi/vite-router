@@ -29,6 +29,11 @@ export interface RouterProps {
    * @default ['layout.tsx', 'layout.jsx']
    */
   layouts: string[];
+
+  /**
+   * Called when the routes are generated
+   */
+  onRoutesGenerated?: (routes: Route[]) => void;
 }
 
 export interface RouteProps {

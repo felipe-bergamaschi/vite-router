@@ -102,6 +102,8 @@ export async function generateRoutes(props: RouterProps) {
     'utf-8'
   );
 
+  await props.onRoutesGenerated?.(routes);
+
   console.info(
     `Generated ${routes.length} routes at ${path.relative(process.cwd(), props.output)}`
   );
