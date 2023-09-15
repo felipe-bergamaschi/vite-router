@@ -18,7 +18,7 @@
 
 ```bash
 npm install -D vite-plugin-router
-npm install react-router react-router-dom 
+npm install react-router react-router-dom
 ```
 
 ### Vite config
@@ -26,25 +26,28 @@ npm install react-router react-router-dom
 Add to your `vite.config.js`:
 
 ```js
-import Routes from 'vite-plugin-router'
+import Routes from 'vite-plugin-router';
 
 export default {
   plugins: [
     // ...
-    Routes(),
-  ],
-}
+    Routes()
+  ]
+};
 ```
 
 ## Overview
 
-By default, vite-plugin-router creates a route file in the `src/` directory containing all the route settings for your application, while observing the files within `src/app`.
+By default, vite-plugin-router creates a route file in the `src/` directory containing all
+the route settings for your application, while observing the files within `src/app`.
 
-Routes are configured using the [Suspense API](https://react.dev/reference/react/Suspense) of `react-router` by default.
+Routes are configured using the [Suspense API](https://react.dev/reference/react/Suspense)
+of `react-router` by default.
 
 ### React
 
-Create `app` folder within `src/` and add `index.tsx` file. Export a default component as an example:
+Create `app` folder within `src/` and add `index.tsx` file. Export a default component as
+an example:
 
 ```js
 export default function Page() {
@@ -52,12 +55,12 @@ export default function Page() {
     <div>
       <h1>Vite Router</h1>
     </div>
-  )
+  );
 }
-
 ```
 
-Run your application `npm run dev`, and you will be able to observe the `(VITE ROUTER)` logs and find the 'routes' file created.
+Run your application `npm run dev`, and you will be able to observe the `(VITE ROUTER)`
+logs and find the 'routes' file created.
 
 Add `AppRoutes` to your `main.tsx`:
 
@@ -76,23 +79,21 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
 
 ## Configuration
 
-To use custom configuration, pass your options to Pages when instantiating the
-plugin:
+To use custom configuration, pass your options to Pages when instantiating the plugin:
 
 ```js
 // vite.config.js
-import { defineConfig } from 'vite'
-import Routes from 'vite-plugin-router'
+import { defineConfig } from 'vite';
+import Routes from 'vite-plugin-router';
 
 export default defineConfig({
   plugins: [
     Routes({
       dir: 'src/app',
-      outDir: 'src',
+      outDir: 'src'
     })
-  ],
-})
-
+  ]
+});
 ```
 
 ### dir
@@ -116,7 +117,7 @@ Output path for the `routes` file.
 
 ### ignore files
 
-- **Default:** 
+- **Default:**
   - `[style.*, *.css]` An array of glob patterns to ignore matches.
 
 ```bash
@@ -134,12 +135,15 @@ src/app/
 Inspired by the routing from
 [NextJS](https://nextjs.org/docs/pages/building-your-application/routing)
 
-'Vite router' simplifies the process of creating routes for your vite application by automatically generating a 'routes' file based on the structure of the `.tsx` files in your pages directory. With this approach, connecting to your vite application becomes effortless, as no additional configuration is needed on your part.
+'Vite router' simplifies the process of creating routes for your vite application by
+automatically generating a 'routes' file based on the structure of the `.tsx` files in
+your pages directory. With this approach, connecting to your vite application becomes
+effortless, as no additional configuration is needed on your part.
 
 ### Basic Routing
 
-Pages will automatically map files from your pages directory to a route with the
-same name:
+Pages will automatically map files from your pages directory to a route with the same
+name:
 
 - `src/app/users.tsx` -> `/users`
 - `src/app/users/profile.tsx` -> `/users/profile`
@@ -154,16 +158,18 @@ Files with the name `index` are treated as the index page of a route:
 
 ### Dynamic Routes
 
-Dynamic routes are denoted using square brackets. Both directories and pages can
-be dynamic:
+Dynamic routes are denoted using square brackets. Both directories and pages can be
+dynamic:
 
 - `src/app/users/[id].tsx` -> `/users/:id` (`/users/123`)
 - `src/app/users/[user]/settings.tsx` -> `/users/:user/settings` (`/users/123/settings`)
 
-
 ### Layouts
 
-We can utilize 'layout' files to create nested layouts from the parent. By naming a specific file 'layout' and defining its child routes within it, we can establish a hierarchical structure for our application. This approach enhances the organization and management of routes, making it easier to maintain and extend the application.
+We can utilize 'layout' files to create nested layouts from the parent. By naming a
+specific file 'layout' and defining its child routes within it, we can establish a
+hierarchical structure for our application. This approach enhances the organization and
+management of routes, making it easier to maintain and extend the application.
 
 For example, this directory structure:
 
@@ -177,7 +183,10 @@ src/app/
 
 ## 🚀 New features
 
-Our application is in a constant state of evolution, and our team is dedicated to bringing you numerous improvements and exciting new features that will enhance its power and user-friendliness. Below, we present a glimpse of some of the features we are actively developing:
+Our application is in a constant state of evolution, and our team is dedicated to bringing
+you numerous improvements and exciting new features that will enhance its power and
+user-friendliness. Below, we present a glimpse of some of the features we are actively
+developing:
 
 ### 🚧 Catch-all Routes
 
@@ -185,8 +194,8 @@ Catch-all routes are denoted with square brackets containing an ellipsis:
 
 - `src/app/[...all].tsx` -> `/*` (`/non-existent-page`)
 
-The text after the ellipsis will be used both to name the route, and as the name
-of the prop in which the route parameters are passed.
+The text after the ellipsis will be used both to name the route, and as the name of the
+prop in which the route parameters are passed.
 
 ### 🚧 Custom error 404
 
