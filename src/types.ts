@@ -9,7 +9,11 @@ export interface RouterProps {
    */
   dir: string;
 
-  /** Root of your project */
+  /**
+   * Root of your project
+   *
+   * @default process
+   */
   root: string;
 
   /**
