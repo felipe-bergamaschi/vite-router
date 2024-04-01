@@ -1,47 +1,41 @@
 {
-  "name": "vite-plugin-router",
-  "version": "0.2.1",
-  "description": "File system router for React applications using Vite.",
-  "keywords": [
-    "vite",
-    "plugin",
-    "router"
-  ],
-  "homepage": "https://github.com/felipe-bergamaschi/vite-router#readme",
-  "bugs": "https://github.com/felipe-bergamaschi/vite-router/issues",
-  "repository": "https://github.com/felipe-bergamaschi/vite-router.git",
-  "license": "MIT",
-  "author": "Felipe Bergamaschi <midisoft.corporation@gmail.com>",
-  "contributors": [
-    "Arthur Fiorette <me@arthur.place>"
-  ],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsc",
-    "format": "prettier --write .",
-    "lint": "prettier --check .",
-    "test": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@types/react": "^18.2.17",
-    "chokidar": "^3.5.3",
-    "debounce": "^1.2.1",
-    "tslib": "^2.6.1"
-  },
-  "devDependencies": {
-    "@arthurfiorette/prettier-config": "^1.0.9",
-    "@types/debounce": "^1.2.1",
-    "@types/node": "^20.4.2",
-    "prettier": "^3.0.0",
-    "rollup": "^3.26.3",
-    "typescript": "^5.1.6"
-  },
-  "peerDependencies": {
-    "vite": "^4.4.7"
-  },
-  "packageManager": "pnpm@7.27.0",
-  "engines": {
-    "node": ">=12"
-  }
+	"name": "vite-plugin-router",
+	"version": "0.2.2",
+	"description": "File system router for React applications using Vite.",
+	"keywords": ["vite", "plugin", "router"],
+	"homepage": "https://github.com/felipe-bergamaschi/vite-router#readme",
+	"bugs": "https://github.com/felipe-bergamaschi/vite-router/issues",
+	"repository": "https://github.com/felipe-bergamaschi/vite-router.git",
+	"license": "MIT",
+	"author": "Felipe Bergamaschi <midisoft.corporation@gmail.com>",
+	"contributors": ["Arthur Fiorette <me@arthur.place>"],
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "tsc",
+		"format": "prettier --write .",
+		"lint": "prettier --check .",
+		"test": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@types/react": "^18.2.73",
+		"chokidar": "^3.6.0",
+		"debounce": "^1.2.1",
+		"tslib": "^2.6.2"
+	},
+	"devDependencies": {
+		"@arthurfiorette/prettier-config": "^1.0.12",
+		"@types/debounce": "^1.2.4",
+		"@types/node": "^20.12.2",
+		"prettier": "^3.2.5",
+		"rollup": "^3.29.4",
+		"typescript": "^5.4.3"
+	},
+	"peerDependencies": {
+		"vite": "^5.0.0"
+	},
+	"packageManager": "pnpm@7.27.0",
+	"engines": {
+		"node": ">=12"
+	}
 }
