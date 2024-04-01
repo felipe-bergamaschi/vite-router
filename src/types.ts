@@ -10,6 +10,13 @@ export interface RouterProps {
   dir: string;
 
   /**
+   * Root of your project
+   *
+   * @default process
+   */
+  root: string;
+
+  /**
    * Output path for the `routes` file.
    *
    * @default 'src/routes.tsx'

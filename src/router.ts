@@ -1,5 +1,6 @@
 import chokidar from 'chokidar';
 import debounce from 'debounce';
+import fs from 'node:fs';
 import type { PluginOption } from 'vite';
 import { configureDefaults } from './defaults';
 import { generateRoutes } from './generator';
@@ -10,6 +11,15 @@ export function ViteRouter(props: Partial<RouterProps> = {}): PluginOption {
 
   const watcher = chokidar.watch(config.dir);
   const generator = debounce(generateRoutes, 100);
+
+  // checks if dir and output exists
+  if (!fs.existsSync(config.output)) {
+    throw new Error('ERR: The output file does not exist');
+  }
+
+  if (!fs.existsSync(config.dir)) {
+    throw new Error('ERR: The pages directory does not exist');
+  }
 
   return {
     name: 'vite-plugin-router',
