@@ -30,17 +30,15 @@ export interface RouterProps {
    */
   layouts: string[];
 
-  /**
-   * Called when the routes are generated
-   */
+  /** Called when the routes are generated */
   onRoutesGenerated?: (routes: Route[]) => void;
 
   /**
    * Chooses the router to be used
-   * 
+   *
    * @default 'BrowserRouter'
    */
-  router: 'BrowserRouter' | 'HashRouter'
+  router: 'BrowserRouter' | 'HashRouter';
 }
 
 export interface RouteProps {

@@ -1,4 +1,9 @@
-export function buildFile(router: string, routes: string[], imports: string[], layoutImports: string[]) {
+export function buildFile(
+  router: string,
+  routes: string[],
+  imports: string[],
+  layoutImports: string[]
+) {
   return `
 // @ts-nocheck
 // eslint-disable 
