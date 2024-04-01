@@ -98,7 +98,7 @@ export async function generateRoutes(props: RouterProps) {
 
   await fs.writeFile(
     props.output,
-    buildFile(builtRoutes, imports, layoutImports),
+    buildFile(props.router, builtRoutes, imports, layoutImports),
     'utf-8'
   );
 

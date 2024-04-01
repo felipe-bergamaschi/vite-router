@@ -1,4 +1,4 @@
-export function buildFile(routes: string[], imports: string[], layoutImports: string[]) {
+export function buildFile(router: string, routes: string[], imports: string[], layoutImports: string[]) {
   return `
 // @ts-nocheck
 // eslint-disable 
@@ -9,7 +9,7 @@ export function buildFile(routes: string[], imports: string[], layoutImports: st
 // https://github.com/felipe-bergamaschi/vite-router
 
 import { lazy, Suspense } from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ${router}, Route, Routes } from 'react-router-dom';
 import type { RouteProps } from 'vite-plugin-router';
 
 ${imports.join('\n').trim()}
@@ -23,7 +23,7 @@ ${layoutImports.join('\n').trim()}
  */
 export function AppRoutes(props: RouteProps) {
   return (
-    <BrowserRouter>
+    <${router}>
       <Suspense fallback={props.loadingPage || <div>Loading...</div>}>
         <Routes>
 
@@ -35,7 +35,7 @@ ${routes.join('\n').trim()}
           />
         </Routes>
       </Suspense> 
-    </BrowserRouter>
+    </${router}>
   );
 }
 

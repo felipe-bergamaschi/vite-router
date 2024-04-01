@@ -7,6 +7,7 @@ export function configureDefaults(props: Partial<RouterProps> = {}) {
   props.output ??= 'src/routes.tsx';
   props.extensions ??= ['.tsx', '.ts', '.jsx', '.js'];
   props.layouts ??= ['layout.tsx', 'layout.jsx'];
+  props.router ??= 'BrowserRouter';
 
   // Makes sure the paths are absolute
   props.dir = path.resolve(process.cwd(), props.dir);
