@@ -15,7 +15,10 @@ export async function generateRoutes(props: RouterProps) {
   for await (const filepath of paths) {
     const { base, name, ext, dir } = path.parse(filepath);
     // full relative path without extension
-    const relative = path.relative(props.output, filepath).slice(undefined, -ext.length);
+    const relative =
+      // typescript always uses / as path separator
+      `./` +
+      path.relative(path.dirname(props.output), filepath).slice(undefined, -ext.length);
 
     // Isn't a file route
     if (!props.extensions.includes(ext)) {
@@ -28,7 +31,7 @@ export async function generateRoutes(props: RouterProps) {
       (!name.startsWith('[') && name.endsWith(']'))
     ) {
       console.error(
-        `ERR: The file is not a valid route (${path.relative(process.cwd(), filepath)})`
+        `ERR: The file is not a valid route (${path.relative(props.root, filepath)})`
       );
       continue;
     }
@@ -40,9 +43,9 @@ export async function generateRoutes(props: RouterProps) {
       } else {
         console.error(
           `ERR: Multiple layouts found in the same directory (${path.relative(
-            process.cwd(),
+            props.root,
             dir
-          )}), using (${path.relative(process.cwd(), filepath)}).`
+          )}), using (${path.relative(props.root, filepath)}).`
         );
       }
 
@@ -105,6 +108,6 @@ export async function generateRoutes(props: RouterProps) {
   await props.onRoutesGenerated?.(routes);
 
   console.info(
-    `Generated ${routes.length} routes at ${path.relative(process.cwd(), props.output)}`
+    `Generated ${routes.length} routes at ${path.relative(props.root, props.output)}`
   );
 }

@@ -9,6 +9,9 @@ export interface RouterProps {
    */
   dir: string;
 
+  /** Root of your project */
+  root: string;
+
   /**
    * Output path for the `routes` file.
    *
