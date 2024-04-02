@@ -1,20 +1,14 @@
 {
 	"name": "vite-plugin-router",
-	"version": "0.2.4",
+	"version": "0.2.5",
 	"description": "File system router for React applications using Vite.",
-	"keywords": [
-		"vite",
-		"plugin",
-		"router"
-	],
+	"keywords": ["vite", "plugin", "router"],
 	"homepage": "https://github.com/felipe-bergamaschi/vite-router#readme",
 	"bugs": "https://github.com/felipe-bergamaschi/vite-router/issues",
 	"repository": "https://github.com/felipe-bergamaschi/vite-router.git",
 	"license": "MIT",
 	"author": "Felipe Bergamaschi <midisoft.corporation@gmail.com>",
-	"contributors": [
-		"Arthur Fiorette <me@arthur.place>"
-	],
+	"contributors": ["Arthur Fiorette <me@arthur.place>"],
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"scripts": {
