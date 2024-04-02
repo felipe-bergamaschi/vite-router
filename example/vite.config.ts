@@ -1,7 +1,12 @@
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
-import Router from 'vite-plugin-router';
+// @ts-ignore
+import { ViteRouter } from '../src';
 
 export default defineConfig({
-  plugins: [react(), Router()]
+  plugins: [
+    react(),
+    // @ts-ignore 
+    ViteRouter()
+  ]
 });
