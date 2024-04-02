@@ -39,7 +39,10 @@ export async function generateRoutes(props: RouterProps) {
     // Is a layout file
     if (props.layouts.includes(base)) {
       if (!layouts[dir]) {
-        layouts[dir] = { path: relative, index: index++ };
+        layouts[dir] = { 
+          path: relative.replaceAll('\\', '/'),
+          index: index++ 
+        };
       } else {
         console.error(
           `ERR: Multiple layouts found in the same directory (${path.relative(
@@ -63,8 +66,8 @@ export async function generateRoutes(props: RouterProps) {
 
     routes.push({
       // Handle index names
-      route,
-      path: relative,
+      route: route === '' ? '/' : route.replaceAll('\\', '/'),
+      path: relative.replaceAll('\\', '/'),
       directory: dir,
       index: index++
     });

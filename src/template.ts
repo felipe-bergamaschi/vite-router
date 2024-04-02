@@ -31,9 +31,7 @@ export function AppRoutes(props: RouteProps) {
     <${router}>
       <Suspense fallback={props.loadingPage || <div>Loading...</div>}>
         <Routes>
-
-${routes.join('\n').trim()}
-
+          ${routes.join('\n').trim()}
           <Route
             path="*"
             element={props.notFoundPage || <div>404</div>}
