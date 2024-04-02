@@ -3,9 +3,9 @@ import type { ReactNode } from 'react';
 /** Properties that can be passed to the plugin */
 export interface RouterProps {
   /**
-   * Path to the pages directory
+   * Path to the app directory
    *
-   * @default 'src/pages'
+   * @default 'src/app'
    */
   dir: string;
 

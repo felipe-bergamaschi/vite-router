@@ -3,7 +3,7 @@ import { RouterProps } from './types';
 
 export function configureDefaults(props: Partial<RouterProps> = {}) {
   // Defines default values
-  props.dir ??= 'src/pages';
+  props.dir ??= 'src/app';
   props.output ??= 'src/routes.tsx';
   props.extensions ??= ['.tsx', '.ts', '.jsx', '.js'];
   props.layouts ??= ['layout.tsx', 'layout.jsx'];
