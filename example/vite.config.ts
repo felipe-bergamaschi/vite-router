@@ -1,12 +1,19 @@
-import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
 // @ts-ignore
-import { ViteRouter } from '../src';
+import { ViteRouter } from "../src";
 
 export default defineConfig({
-  plugins: [
-    react(),
-    // @ts-ignore 
-    ViteRouter()
-  ]
+	plugins: [
+		react(),
+		// @ts-ignore
+		ViteRouter({
+			router: "BrowserRouter",
+		}),
+		// @ts-ignore
+		ViteRouter({
+			router: "HashRouter",
+			output: "src/routes.hash.tsx",
+		}),
+	],
 });
