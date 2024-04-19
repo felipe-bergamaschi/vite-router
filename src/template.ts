@@ -3,6 +3,7 @@ export function buildFile(
 	routes: string[],
 	imports: string[],
 	layoutImports: string[],
+	useLazy: boolean,
 ) {
 	return `
 // @ts-nocheck
@@ -13,7 +14,7 @@ export function buildFile(
 // https://www.npmjs.com/package/vite-plugin-router
 // https://github.com/felipe-bergamaschi/vite-router
 
-import { lazy, Suspense } from 'react';
+import { ${useLazy ? "lazy, Suspense" : "Suspense"} } from 'react';
 import { ${router}, Route, Routes } from 'react-router-dom';
 import type { RouteProps } from 'vite-plugin-router';
 
@@ -68,6 +69,14 @@ export function buildLazyImport(name: string, path: string) {
 	return `
 
 const ${name} = lazy(() => import('${path}'));
+
+`.trim();
+}
+
+export function buildDefaultImport(name: string, path: string) {
+	return `
+
+import ${name} from '${path}';
 
 `.trim();
 }

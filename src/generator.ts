@@ -1,6 +1,11 @@
 import fs from "node:fs/promises";
 import path from "node:path";
-import { buildComponent, buildFile, buildLazyImport } from "./template";
+import {
+	buildComponent,
+	buildDefaultImport,
+	buildFile,
+	buildLazyImport,
+} from "./template";
 import type { Layout, Route, RouterProps } from "./types";
 import { walk } from "./walk";
 
@@ -14,6 +19,12 @@ export async function generateRoutes(props: RouterProps) {
 	let index = 0;
 	for await (const filepath of paths) {
 		const { base, name, ext, dir } = path.parse(filepath);
+
+		// TODO: Remove this line
+		if (name === "styles") {
+			continue;
+		}
+
 		// full relative path without extension
 		const relative =
 			// typescript always uses / as path separator
@@ -71,7 +82,7 @@ export async function generateRoutes(props: RouterProps) {
 		routes.push({
 			// Handle index names
 			route: route === "" ? "/" : route.replaceAll("\\", "/"),
-			path: relative.replaceAll("\\", "/"),
+			path: relative.replaceAll("\\", "/").replace("index", ""),
 			directory: dir,
 			index: index++,
 		});
@@ -88,27 +99,38 @@ export async function generateRoutes(props: RouterProps) {
 		} while (!route.layout && dir.length >= props.dir.length);
 	}
 
-	const imports = routes.map((r) => buildLazyImport(`Route${r.index}`, r.path));
+	const imports =
+		props.router === "HashRouter"
+			? routes.map((r) => buildDefaultImport(`R${r.index}`, r.path))
+			: routes.map((r) => buildLazyImport(`R${r.index}`, r.path));
 
 	const layoutImports = Object.values(layouts).map((l) =>
-		buildLazyImport(`Layout${l.index}`, l.path),
+		props.router === "HashRouter"
+			? buildDefaultImport(`L${l.index}`, l.path)
+			: buildLazyImport(`L${l.index}`, l.path),
 	);
 
 	const builtRoutes = routes.map((r) => {
-		const component = buildComponent(`Route${r.index}`);
+		const component = buildComponent(`R${r.index}`);
 
 		return buildComponent("Route", {
 			path: `"${r.route}"`,
 			key: `"${r.route}"`,
 			element: r.layout
-				? buildComponent(`Layout${r.layout.index}`, undefined, component)
+				? buildComponent(`L${r.layout.index}`, undefined, component)
 				: component,
 		});
 	});
 
 	await fs.writeFile(
 		props.output,
-		buildFile(props.router, builtRoutes, imports, layoutImports),
+		buildFile(
+			props.router,
+			builtRoutes,
+			imports,
+			layoutImports,
+			props.router === "HashRouter" ? false : true,
+		),
 		"utf-8",
 	);
 
