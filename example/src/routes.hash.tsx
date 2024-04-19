@@ -28,10 +28,10 @@ export function AppRoutes(props: RouteProps) {
     <HashRouter>
       <Suspense fallback={props.loadingPage || <div>Loading...</div>}>
         <Routes>
-          <Route path={"#/admin"} key={"#/admin"} element={<L1><R0></R0></L1>}></Route>
-<Route path={"#/admin/product/details/[id]"} key={"#/admin/product/details/[id]"} element={<L1><R2></R2></L1>}></Route>
-<Route path={"#/admin/product/:id"} key={"#/admin/product/:id"} element={<L1><R3></R3></L1>}></Route>
-<Route path={"#/"} key={"#/"} element={<L5><R4></R4></L5>}></Route>
+          <Route path={"/admin"} key={"/admin"} element={<L1><R0></R0></L1>}></Route>
+<Route path={"/admin/product/details/[id]"} key={"/admin/product/details/[id]"} element={<L1><R2></R2></L1>}></Route>
+<Route path={"/admin/product/:id"} key={"/admin/product/:id"} element={<L1><R3></R3></L1>}></Route>
+<Route path={"/"} key={"/"} element={<L5><R4></R4></L5>}></Route>
           <Route
             path="*"
             element={props.notFoundPage || <div>404</div>}
