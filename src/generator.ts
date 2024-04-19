@@ -81,7 +81,14 @@ export async function generateRoutes(props: RouterProps) {
 
 		routes.push({
 			// Handle index names
-			route: route === "" ? "/" : route.replaceAll("\\", "/"),
+			route:
+				props.router === "HashRouter"
+					? route === ""
+						? "#/"
+						: `#${route.replaceAll("\\", "/")}`
+					: route === ""
+						? "/"
+						: route.replaceAll("\\", "/"),
 			path: relative.replaceAll("\\", "/").replace("index", ""),
 			directory: dir,
 			index: index++,
