@@ -2,13 +2,19 @@
 	"name": "vite-plugin-router",
 	"version": "0.2.7",
 	"description": "File system router for React applications using Vite.",
-	"keywords": ["vite", "plugin", "router"],
+	"keywords": [
+		"vite",
+		"plugin",
+		"router"
+	],
 	"homepage": "https://github.com/felipe-bergamaschi/vite-router#readme",
 	"bugs": "https://github.com/felipe-bergamaschi/vite-router/issues",
 	"repository": "https://github.com/felipe-bergamaschi/vite-router.git",
 	"license": "MIT",
 	"author": "Felipe Bergamaschi <midisoft.corporation@gmail.com>",
-	"contributors": ["Arthur Fiorette <me@arthur.place>"],
+	"contributors": [
+		"Arthur Fiorette <me@arthur.place>"
+	],
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
 	"scripts": {
@@ -21,18 +27,23 @@
 		"@types/react": "^18.2.74",
 		"chokidar": "^3.6.0",
 		"debounce": "^2.0.0",
+		"qs": "^6.12.1",
 		"tslib": "^2.6.2"
 	},
 	"devDependencies": {
 		"@arthurfiorette/prettier-config": "^1.0.12",
 		"@types/debounce": "^1.2.4",
 		"@types/node": "^20.12.2",
+		"@types/qs": "^6.9.15",
 		"prettier": "^3.2.5",
 		"rollup": "^4.13.2",
 		"typescript": "^5.4.3"
 	},
 	"peerDependencies": {
-		"vite": "^5.2.7"
+		"react": "^18.0.0",
+		"react-dom": "^18.0.0",
+		"react-router-dom": "^6.0.0",
+		"vite": "^5.0.0"
 	},
 	"packageManager": "pnpm@9.0.1",
 	"engines": {
