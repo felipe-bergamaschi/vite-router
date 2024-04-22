@@ -8,6 +8,7 @@ import {
 } from "./template";
 import type { Layout, Route, RouterProps } from "./types";
 import { walk } from "./walk";
+import { hooksGenerator } from "./hooks";
 
 export async function generateRoutes(props: RouterProps) {
 	const paths = walk(props.dir);
@@ -72,11 +73,13 @@ export async function generateRoutes(props: RouterProps) {
 
 		// removes root dir
 		let route = dir.slice(props.dir.length);
+		let param: string | null = null;
 
 		// Only adds filename if it's not index
 		if (name !== "index") {
+			param = name.replace(/\[(.+?)\]/g, ":$1");
 			// replaces [named] path with :named
-			route += `/${name.replace(/\[(.+?)\]/g, ":$1")}`;
+			route += `/${param}`;
 		}
 
 		routes.push({
@@ -85,6 +88,7 @@ export async function generateRoutes(props: RouterProps) {
 			path: relative.replaceAll("\\", "/").replace("index", ""),
 			directory: dir,
 			index: index++,
+			params: param ? [param] : undefined,
 		});
 	}
 
@@ -122,6 +126,9 @@ export async function generateRoutes(props: RouterProps) {
 		});
 	});
 
+	// useNavigate generator
+	await hooksGenerator(routes);
+
 	await fs.writeFile(
 		props.output,
 		buildFile(
@@ -134,7 +141,7 @@ export async function generateRoutes(props: RouterProps) {
 		"utf-8",
 	);
 
-	await props.onRoutesGenerated?.(routes);
+	props.onRoutesGenerated?.(routes);
 
 	console.info(
 		`Generated ${routes.length} routes at ${path.relative(
