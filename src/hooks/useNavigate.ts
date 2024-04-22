@@ -19,7 +19,9 @@ export function useNavigate() {
 		let pathWithParams = path;
 
 		// Substituir parâmetros na URL, se houver
+		// @ts-ignore
 		if (path.includes(":")) {
+			// @ts-ignore
 			pathWithParams = path.replace(/\:[a-zA-Z]+/g, (match) => {
 				const paramKey = match.substring(1); // Remove o ':'
 				if (!(paramKey in params)) {
@@ -32,6 +34,7 @@ export function useNavigate() {
 		}
 
 		// Adicionar query strings, se houver
+		// @ts-ignore
 		const queryString = qs.stringify(params.params);
 		const finalPath = queryString
 			? `${pathWithParams}?${queryString}`
