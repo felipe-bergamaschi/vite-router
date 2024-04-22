@@ -77,4 +77,5 @@ export interface Route {
 	route: string;
 	index: number;
 	layout?: Layout;
+	params?: string[];
 }
