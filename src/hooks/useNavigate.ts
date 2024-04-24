@@ -1,7 +1,20 @@
 import qs from "qs";
-import type { ITypedRoutes } from "./types";
-
 import { useNavigate as useRRDNavigate } from "react-router-dom";
+import type routes from "./routes.json";
+
+type RouteEntry = {
+	readonly [K: string]: Readonly<Record<string, string>> | null;
+};
+
+type ExtractRouteParams<T> = T extends Record<string, string>
+	? { [K in keyof T as K extends string ? K : never]: string }
+	: undefined;
+
+type DynamicRoutes<T extends RouteEntry> = {
+	[P in keyof T]: ExtractRouteParams<T[P]>;
+};
+
+type ITypedRoutes = DynamicRoutes<typeof routes>;
 
 type RouteParams<T extends keyof ITypedRoutes> =
 	ITypedRoutes[T] extends undefined
@@ -18,7 +31,6 @@ export function useNavigate() {
 		const params = options ?? {};
 		let pathWithParams = path;
 
-		// Substituir parâmetros na URL, se houver
 		// @ts-ignore
 		if (path.includes(":")) {
 			// @ts-ignore
@@ -33,7 +45,6 @@ export function useNavigate() {
 			});
 		}
 
-		// Adicionar query strings, se houver
 		// @ts-ignore
 		const queryString = qs.stringify(params.params);
 		const finalPath = queryString

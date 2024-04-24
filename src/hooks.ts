@@ -4,43 +4,30 @@ import path from "node:path";
 import type { Route } from "./types";
 
 export async function hooksGenerator(routes: Route[]) {
-	const types = await typeGenerator(routes);
-
-	return await fs.writeFile(
-		path.resolve(__dirname, "./hooks/types.ts"),
-		types,
-		"utf8",
-	);
-}
-
-async function typeGenerator(routes: Route[]) {
-	let typeDefs = "";
-	typeDefs = "export interface ITypedRoutes {\n";
+	const result: Record<string, null | Record<string, string>> = {};
 
 	for (const route of routes) {
-		if (route.params) {
-			if (!route.params.length) {
-				typeDefs += `  "${route.route}": undefined;\n`;
-				continue;
+		if (
+			route.params &&
+			Array.isArray(route.params) &&
+			route.params.length > 0
+		) {
+			const paramsObject: Record<string, string> = {};
+
+			for (const param of route.params) {
+				const paramName = param.replace(":", "");
+				paramsObject[paramName] = "string";
 			}
 
-			const params = route.params.reduce(
-				(acc, cur) => {
-					const paramName = cur.replace(":", "");
-
-					acc[paramName] = "string";
-					return acc;
-				},
-				{} as Record<string, string>,
-			);
-
-			const paramsString = JSON.stringify(params).replace(/"/g, "");
-			typeDefs += `  "${route.route}": ${paramsString};\n`;
+			result[route.route] = paramsObject;
 		} else {
-			typeDefs += `  "${route.route}": undefined;\n`;
+			result[route.route] = null;
 		}
 	}
 
-	typeDefs += "};\n";
-	return typeDefs;
+	return fs.writeFile(
+		path.resolve(__dirname, "./hooks/routes.json"),
+		JSON.stringify(result, null, 1),
+		"utf8",
+	);
 }
