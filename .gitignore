@@ -1,2 +1,4 @@
 node_modules
 dist
+src/hooks/routes.d.ts
+src/hooks/schema.json

@@ -26,6 +26,7 @@
 	},
 	"devDependencies": {
 		"@arthurfiorette/prettier-config": "^1.0.12",
+		"@biomejs/biome": "1.7.1",
 		"@types/debounce": "^1.2.4",
 		"@types/node": "^20.12.2",
 		"@types/qs": "^6.9.15",
@@ -42,5 +43,6 @@
 	"packageManager": "pnpm@9.0.1",
 	"engines": {
 		"node": ">=12"
-	}
+	},
+	"files": ["dist/**/*"]
 }
