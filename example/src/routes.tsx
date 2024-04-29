@@ -14,6 +14,7 @@ const R0 = lazy(() => import('./app/admin/'));
 const R2 = lazy(() => import('./app/admin/product/details/[id]/'));
 const R3 = lazy(() => import('./app/admin/product/[id]'));
 const R4 = lazy(() => import('./app/'));
+const R6 = lazy(() => import('./app/util/navigate'));
 const L1 = lazy(() => import('./app/admin/layout'));
 const L5 = lazy(() => import('./app/layout'));
 
@@ -32,6 +33,7 @@ export function AppRoutes(props: RouteProps) {
 <Route path={"/admin/product/details/[id]"} key={"/admin/product/details/[id]"} element={<L1><R2></R2></L1>}></Route>
 <Route path={"/admin/product/:id"} key={"/admin/product/:id"} element={<L1><R3></R3></L1>}></Route>
 <Route path={"/"} key={"/"} element={<L5><R4></R4></L5>}></Route>
+<Route path={"/util/navigate"} key={"/util/navigate"} element={<L5><R6></R6></L5>}></Route>
           <Route
             path="*"
             element={props.notFoundPage || <div>404</div>}
