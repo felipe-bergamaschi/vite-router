@@ -136,7 +136,7 @@ export async function generateRoutes(props: RouterProps) {
 			builtRoutes,
 			imports,
 			layoutImports,
-			props.router === "HashRouter" ? false : true,
+			Boolean(props.router === "BrowserRouter"),
 		),
 		"utf-8",
 	);
