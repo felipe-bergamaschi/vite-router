@@ -1,6 +1,6 @@
 {
 	"name": "vite-plugin-router",
-	"version": "0.3.3",
+	"version": "0.3.4",
 	"description": "File system router for React applications using Vite.",
 	"keywords": ["vite", "plugin", "router"],
 	"homepage": "https://github.com/felipe-bergamaschi/vite-router#readme",
@@ -11,7 +11,6 @@
 	"contributors": ["Arthur Fiorette <me@arthur.place>"],
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
-	"type": "commonjs",
 	"scripts": {
 		"build": "tsc",
 		"format": "prettier --write .",
@@ -44,6 +43,10 @@
 	"packageManager": "pnpm@9.0.1",
 	"engines": {
 		"node": ">=12"
+	},
+	"exports": {
+		".": "./dist/index.js",
+		"./hooks": "./dist/hooks/index.js"
 	},
 	"files": ["src", "dist"]
 }
