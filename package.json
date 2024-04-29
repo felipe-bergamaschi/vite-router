@@ -1,6 +1,6 @@
 {
 	"name": "vite-plugin-router",
-	"version": "0.3.9",
+	"version": "0.3.10",
 	"description": "File system router for React applications using Vite.",
 	"keywords": ["vite", "plugin", "router"],
 	"homepage": "https://github.com/felipe-bergamaschi/vite-router#readme",
@@ -44,11 +44,5 @@
 	"engines": {
 		"node": ">=12"
 	},
-	"exports": {
-		".": {
-			"import": "./dist/index.js",
-			"require": "./dist/index.js"
-		}
-	},
-	"files": ["dist"]
+	"files": ["dist/**/*"]
 }

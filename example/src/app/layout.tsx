@@ -1,6 +1,6 @@
-// import { useNavigate } from "vite-plugin-router/dist/hooks/useNavigate";
+import { useNavigate } from "vite-plugin-router/dist/hooks/useNavigate";
 
-import { useNavigate } from "./util/navigate";
+// import { useNavigate } from "./util/navigate";
 
 export default function Index() {
 	const navigate = useNavigate();
