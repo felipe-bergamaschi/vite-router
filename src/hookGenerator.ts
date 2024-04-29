@@ -3,7 +3,7 @@ import path from "node:path";
 
 import type { Route } from "./types";
 
-export async function hooksGenerator(routes: Route[]) {
+export async function hookGenerator(routes: Route[]) {
 	const schema = schemaGenerator(routes);
 	const types = typesGenerator(routes);
 

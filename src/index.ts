@@ -1,7 +1,8 @@
-import { ViteRouter } from "./router";
-
-export type { RouteProps } from "./types";
-export { ViteRouter } from "./router";
 export * from "./hooks";
-
-export default ViteRouter;
+export * from "./defaults";
+export * from "./generator";
+export * from "./hookGenerator";
+export * from "./router";
+export * from "./template";
+export * from "./types";
+export * from "./walk";

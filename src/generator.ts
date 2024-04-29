@@ -8,7 +8,7 @@ import {
 } from "./template";
 import type { Layout, Route, RouterProps } from "./types";
 import { walk } from "./walk";
-import { hooksGenerator } from "./hooks";
+import { hookGenerator } from "./hookGenerator";
 
 export async function generateRoutes(props: RouterProps) {
 	const paths = walk(props.dir);
@@ -126,8 +126,7 @@ export async function generateRoutes(props: RouterProps) {
 		});
 	});
 
-	// useNavigate generator
-	await hooksGenerator(routes);
+	await hookGenerator(routes);
 
 	await fs.writeFile(
 		props.output,
