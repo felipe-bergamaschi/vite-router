@@ -34,7 +34,7 @@ importers:
         version: 2.6.2
       vite:
         specifier: ^5.0.0
-        version: 5.2.7(@types/node@20.12.2)
+        version: 5.2.7(@types/node@20.12.8)
     devDependencies:
       '@arthurfiorette/prettier-config':
         specifier: ^1.0.12
@@ -47,7 +47,7 @@ importers:
         version: 1.2.4
       '@types/node':
         specifier: ^20.12.2
-        version: 20.12.2
+        version: 20.12.8
       '@types/qs':
         specifier: ^6.9.15
         version: 6.9.15
@@ -370,8 +370,8 @@ packages:
   '@types/ms@0.7.34':
     resolution: {integrity: sha512-nG96G3Wp6acyAgJqGasjODb+acrI7KltPiRxzHPXnP3NgI28bpQDRv53olbqGXbfcgF5aiiHmO3xpwEpS5Ld9g==}
 
-  '@types/node@20.12.2':
-    resolution: {integrity: sha512-zQ0NYO87hyN6Xrclcqp7f8ZbXNbRfoGWNcMvHTPQp9UUrwI0mI7XBz+cu7/W6/VClYo2g63B0cjull/srU7LgQ==}
+  '@types/node@20.12.8':
+    resolution: {integrity: sha512-NU0rJLJnshZWdE/097cdCBbyW1h4hEg0xpovcoAQYHl8dnEyp/NAOiE45pvc+Bd1Dt+2r94v2eGFpQJ4R7g+2w==}
 
   '@types/prop-types@15.7.12':
     resolution: {integrity: sha512-5zvhXYtRNRluoE/jAp4GVsSduVUzNWKkOZrCDBWYtE7biZywwdC2AcEzg+cSMLFRfVgeAFqpfNabiPjxFddV1Q==}
@@ -1022,7 +1022,7 @@ snapshots:
 
   '@types/ms@0.7.34': {}
 
-  '@types/node@20.12.2':
+  '@types/node@20.12.8':
     dependencies:
       undici-types: 5.26.5
 
@@ -1548,13 +1548,13 @@ snapshots:
     dependencies:
       '@types/unist': 3.0.2
 
-  vite@5.2.7(@types/node@20.12.2):
+  vite@5.2.7(@types/node@20.12.8):
     dependencies:
       esbuild: 0.20.2
       postcss: 8.4.38
       rollup: 4.13.2
     optionalDependencies:
-      '@types/node': 20.12.2
+      '@types/node': 20.12.8
       fsevents: 2.3.3
 
   yallist@4.0.0: {}
